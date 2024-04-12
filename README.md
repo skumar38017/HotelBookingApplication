@@ -1,6 +1,6 @@
 Navigte to run Project HotelBookin
 
-    # 1. Create Virtual Env
+    # 1. Create Virtual Env ( if you are running of local machine / virtual Folder)
             Python -m Venv HotelBookingSite
             source/(Folder)/bin/activate
     # 2. Clone Project from GitHub 

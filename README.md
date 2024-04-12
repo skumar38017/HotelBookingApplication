@@ -27,8 +27,14 @@ Navigte to run Project HotelBookin
             pip install django
     # 4. Install mysqlclient
             pip install mysqlclient
-    # 4. Run makemigrations, Migrate
+    # 5. Run makemigrations, Migrate
             python manage.py makemigrations
             python manage.py migrate
-    # 5. Run server
+    # 6. Create A super User ( optional )
+            python manage.py createsuperuser <enter>
+            username :admin
+            email :
+            password:admin
+            
+    # 7. Run server
             python manage.py runserver 0.0.0.0:8000      

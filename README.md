@@ -18,7 +18,7 @@ Navigte to run Project HotelBookin
    
 2. Django Project
 3. 
-    # 1. Create Virtual Env ( if you are running of local machine / virtual Folder)
+    # 1. Create Virtual Env ( if you are running on local machine / virtual Folder)
             Python -m Venv HotelBookingSite
             source/(Folder)/bin/activate
     # 2. Clone Project from GitHub 

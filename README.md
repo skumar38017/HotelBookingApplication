@@ -2,10 +2,11 @@ Navigte to run Project HotelBookin
 
 1. BackEnd / Database ( mysql )
 
-   Install MYSQL DATABASE
-   Create Database 
+   Install MYSQL DATABASE, 
+   Create Database, 
    Create User In MYSQL ( With Grant All privileges on databse )
    
+2. Django Project 
     # 1. Create Virtual Env ( if you are running of local machine / virtual Folder)
             Python -m Venv HotelBookingSite
             source/(Folder)/bin/activate

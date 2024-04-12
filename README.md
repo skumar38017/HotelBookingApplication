@@ -1,5 +1,10 @@
 Navigte to run Project HotelBookin
 
+1. BackEnd / Database
+       1. Install mysql database
+       2. Create user/Password
+       3. create Database
+
     # 1. Create Virtual Env ( if you are running of local machine / virtual Folder)
             Python -m Venv HotelBookingSite
             source/(Folder)/bin/activate

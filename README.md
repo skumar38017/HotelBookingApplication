@@ -2,11 +2,22 @@ Navigte to run Project HotelBookin
 
 1. BackEnd / Database ( mysql )
 
-  1.( Install MYSQL DATABASE, )
-  2. ( Create Database, ) 
-  3. ( Create User In MYSQL ( With Grant All privileges on databse ) )
+  # 1.( Install MYSQL DATABASE, )
+     sudo apt update
+     sudo apt install mysql-server
+     sudo systemctl status mysql
+     sudo mysql -u root -p 
+  
+  # 2. ( Create Database, )
+      CREATE DATABASE <name of project database>
+  # 3. ( Create User In MYSQL ( With Grant All privileges on databse ) )
+       GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'host';
+       GRANT ALL PRIVILEGES ON demo.* TO 'myuser'@'localhost';
+       GRANT ALL PRIVILEGES ON demo.* TO 'myuser'@'%';
+
    
-2. Django Project 
+2. Django Project
+3. 
     # 1. Create Virtual Env ( if you are running of local machine / virtual Folder)
             Python -m Venv HotelBookingSite
             source/(Folder)/bin/activate

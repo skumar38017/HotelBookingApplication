@@ -7,6 +7,8 @@ Navigte to run Project HotelBookin
             git clone https://github.com/sumitkumar74604/HotelBooking.git
     # 3. Install Django
             pip install django
+    # 4. Install mysqlclient
+            pip install mysqlclient
     # 4. Run Migrate
             python manage.py migrate
           

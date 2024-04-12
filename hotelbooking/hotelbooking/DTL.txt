@@ -1,0 +1,8 @@
+Data Template Language (DTL): It is a data which is rendered from django views to django template page, this data will be implemented in the form of dictionary where each key will be considered as reference to template page.To write django related implementation on template page we have to use Django Template Language.
+
+1. Django script tag
+print parameters
+{{parameter_name}} 
+
+2.To Write a Code Block
+{% code %}

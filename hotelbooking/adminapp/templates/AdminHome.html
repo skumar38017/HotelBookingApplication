@@ -1,0 +1,99 @@
+{% extends 'index.html'%}
+
+
+{% block Header %}
+<!-- Header Start -->
+<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a href="index.html"
+                class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h2 class="m-0 text-primary text-uppercase">Hotel Booking</h2>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <div class="row gx-0 bg-white d-none d-lg-flex">
+                <div class="col-lg-7 px-5 text-start">
+                    <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                        <p class="mb-0">Welcome {{admin.name}}!!</p>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center py-2">
+                        <i class="fa fa-phone-alt text-primary me-2"></i>
+                        <p class="mb-0">{{admin.mobile}}</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 px-5 text-end">
+                    <div class="d-inline-flex align-items-center py-2">
+                        <div class="h-100 d-inline-flex align-items-center py-2">
+                            <i class="fa fa-envelope text-primary me-2"></i>
+                            <p class="mb-0">{{admin.email}}!!</p>
+                        </div>
+                        <!-- <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="" href=""><i class="fab fa-youtube"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 text-primary text-uppercase">Hotel Booking</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="{{curl}}/hoteladmin/home" class="nav-item nav-link active">Admin Home</a>
+                        <a href={{curl}}/hoteladmin/addroom
+                         class="nav-item nav-link">Add Rooms</a>
+
+                         <a href={{curl}}/hoteladmin/viewroom
+                         class="nav-item nav-link">View Rooms</a>
+
+                         <a href={{curl}}/hoteladmin/addhotel
+                         class="nav-item nav-link">Add Hotel</a>
+
+                         <a href={{curl}}/hoteladmin/viewhotel
+                         class="nav-item nav-link">View Hotel</a>
+
+                         <a href={{curl}}/hoteladmin/changepassword
+                         class="nav-item nav-link">Change Password</a>
+
+                        <a href="{{curl}}/login" class="nav-item nav-link">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+{% endblock Header %}
+
+{% block About %}
+{% endblock About %}
+
+{% block Carousel %}
+{% endblock Carousel %}
+
+{% block Booking %}
+{% endblock Booking %}
+
+{% block Room %}
+{% endblock Room %}
+
+{% block Video %}
+{% endblock Video %}
+
+{% block Service %}
+{% endblock Service %}
+
+{% block Testimonial %}
+{% endblock Testimonial %}
+
+{% block Team %}
+{% endblock Team %}
+

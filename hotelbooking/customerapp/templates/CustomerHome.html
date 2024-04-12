@@ -1,0 +1,239 @@
+{% extends 'index.html'%}
+
+
+{% block Header %}
+<!-- Header Start -->
+<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a href="index.html"
+                class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h2 class="m-0 text-primary text-uppercase">Hotel Booking</h2>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <div class="row gx-0 bg-white d-none d-lg-flex">
+                <div class="col-lg-7 px-5 text-start">
+                    <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                        <p class="mb-0">Welcome {{customer.name}}!!</p>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center py-2">
+                        <i class="fa fa-phone-alt text-primary me-2"></i>
+                        <p class="mb-0">{{customer.mobile}}</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 px-5 text-end">
+                    <div class="d-inline-flex align-items-center py-2">
+                        <div class="h-100 d-inline-flex align-items-center py-2">
+                            <i class="fa fa-envelope text-primary me-2"></i>
+                            <p class="mb-0">{{customer.email}}!!</p>
+                        </div>
+                        <!-- <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="" href=""><i class="fab fa-youtube"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 text-primary text-uppercase">Hotel Booking</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="{{curl}}" class="nav-item nav-link active">Home</a>
+                        <!-- <a href="{{curl}}/about" class="nav-item nav-link">Booking</a>
+                        <a href="room.html" class="nav-item nav-link">Rooms</a> -->
+                        <a href="{{curl}}/login" class="nav-item nav-link">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+{% endblock Header %}
+
+{% block About %}
+{% endblock About %}
+
+{% block Booking %}
+
+<style>
+input::-webkit-input-placeholder {
+    font-size: 14px;
+}
+</style>
+
+<div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="bg-white shadow" style="padding: 35px;">
+            <div class="row g-2">
+                <div class="col-md-12">
+                    <div class="row g-2">
+                        <div class="col-md-2">
+                            <input type="text"
+                            class="form-control"
+                            placeholder="AREA, LANDMARK"
+                            />
+                        </div>
+                        <div class="col-md-2">
+                            <div class="date" id="date1" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input"
+                                    placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="date" id="date2" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input"
+                                    placeholder="Check out" data-target="#date2" data-toggle="datetimepicker" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-select">
+                                <option selected>Adult</option>
+                                <option value="1">Adult 1</option>
+                                <option value="2">Adult 2</option>
+                                <option value="3">Adult 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-select">
+                                <option selected>Child</option>
+                                <option value="1">Child 1</option>
+                                <option value="2">Child 2</option>
+                                <option value="3">Child 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary w-100">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Booking %}
+
+{% block Room %}
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase"></h6>
+            <h1 class="mb-5"><span class="text-primary text-uppercase"> Available Hotel</span></h1>
+        </div>
+        <!-- <div class="row g-4">
+        {% for dic in room_data %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp">
+                <div class="room-item shadow rounded overflow-hidden">
+                    <div class="position-relative">
+                        <img class="img-fluid" src="{{ media_url }}{{dic.room_img}}">
+                        <small
+                            class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"
+                            style="font-weight: bold;">&#8377;{{dic.room_price}}/Night</small>
+                    </div>
+                    <div class="p-4 mt-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="mb-0">{{dic.room_name}}</h5>
+                            <div class="ps-2">
+                
+                                {% with ''|center:dic.room_rating as range %}
+                                {% for _ in range %}
+                                    
+                                    <small class="fa fa-star text-primary"></small>
+                                {% endfor %}
+                                {% endwith %}
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <small class="border-end me-3 pe-3"><i
+                                    class="fa fa-bed text-primary me-2"></i>{{dic.room_bed}}
+                                Bed</small>
+                            <small class="border-end me-3 pe-3"><i
+                                    class="fa fa-bath text-primary me-2"></i>{{dic.room_bath}}
+                                Bath</small>
+                            <small>
+                                {% if dic.room_wifi == 'Yes' %}
+                                <i class="fa fa-wifi text-primary me-2"></i>Wifi
+                                {% endif %}
+                            </small>
+                        </div>
+                        <p class="text-body mb-3">{{dic.room_description}}</p>
+                        <div class="d-flex justify-content-between">
+                            
+                            <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div> -->
+    <div class="row g-4">
+        {% for dic in hotel_data %}
+        <div class="col-lg-4 col-md-6 wow fadeInUp">
+            <div class="room-item shadow rounded overflow-hidden">
+                <div class="position-relative">
+                    <img class="img-fluid" src="{{ media_url }}{{dic.hotel_img}}">
+                    <small
+                        class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"
+                        style="font-weight: bold;">&#8377;{{dic.hotel_price}}/Night &#8377;<small><del>{{dic.hotel_old_price}}/Night</del></small></small>
+                </div>
+                <div class="p-4 mt-2">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h5 class="mb-0">{{dic.hotel_name}}</h5>
+                        <div class="ps-2">
+
+                            {% with ''|center:dic.hotel_rating as range %}
+                            {% for _ in range %}
+                            <!-- {{ forloop.counter }} -->
+                            <small class="fa fa-star text-primary"></small>
+                            {% endfor %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                       
+                        <small class="border-end me-3 pe-3">Discount
+                            {{dic.hotel_discount}}%Off</small>
+                        <small>
+                            {% if dic.hotel_wifi == 'Yes' %}
+                            <i class="fa fa-wifi text-primary me-2"></i>Wifi
+                            {% endif %}
+                        </small>
+                    </div>
+                    <p class="text-body mb-3">{{dic.hotel_address}}</p>
+                    <div class="d-flex justify-content-between">
+                        <a class="btn btn-sm btn-primary rounded py-2 px-4" href="{{curl}}/customer/availableroom?id={{dic.hotel_id}}"
+                        >View Rooms</a>
+                        <!-- <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+    </div>
+</div>
+{% endblock Room %}
+
+
+{% block Video %}
+{% endblock Video %}
+
+{% block Service %}
+{% endblock Service %}
+
+{% block Testimonial %}
+{% endblock Testimonial %}
+
+{% block Team %}
+{% endblock Team %}
+

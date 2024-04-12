@@ -1,0 +1,196 @@
+{% extends 'index.html' %}
+
+
+{% block Header %}
+<!-- Header Start -->
+<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a href="index.html"
+                class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h2 class="m-0 text-primary text-uppercase">Hotel Booking</h2>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <div class="row gx-0 bg-white d-none d-lg-flex">
+                <div class="col-lg-7 px-5 text-start">
+                    <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                        <p class="mb-0">Welcome {{admin.name}}!!</p>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center py-2">
+                        <i class="fa fa-phone-alt text-primary me-2"></i>
+                        <p class="mb-0">{{admin.mobile}}</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 px-5 text-end">
+                    <div class="d-inline-flex align-items-center py-2">
+                        <div class="h-100 d-inline-flex align-items-center py-2">
+                            <i class="fa fa-envelope text-primary me-2"></i>
+                            <p class="mb-0">{{admin.email}}!!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 text-primary text-uppercase">Hotel Booking</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="{{curl}}/hoteladmin/home" class="nav-item nav-link active">Admin Home</a>
+                        <a href={{curl}}/hoteladmin/addroom
+                         class="nav-item nav-link">Add Rooms</a>
+
+                         <a href={{curl}}/hoteladmin/viewroom
+                         class="nav-item nav-link">View Rooms</a>
+
+                         <a href={{curl}}/hoteladmin/addhotel
+                         class="nav-item nav-link">Add Hotel</a>
+
+                         <a href={{curl}}/hoteladmin/viewhotel
+                         class="nav-item nav-link">View Hotel</a>
+
+                         <a href={{curl}}/hoteladmin/changepassword
+                         class="nav-item nav-link">Change Password</a>
+
+                        <a href="{{curl}}/login" class="nav-item nav-link">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+{% endblock Header %}
+
+
+{% block Carousel %}
+<style>
+    input[type=radio] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .test {
+        background-color: #fea23b;
+        color: white;
+    }
+</style>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <!-- <h6 class="section-title text-center text-primary text-uppercase">Add Hotel</h6> -->
+            <h1 class="mb-5"><span class="text-primary text-uppercase">Add Hotel</span> For Hotel Booking</h1>
+        </div>
+        <h1>{{msg}}</h1>
+        <form align="center" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="hotelname" 
+                        name="hotelname"
+                        placeholder="Hotel Name">
+                        <label for="hotelname">Hotel Name</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="file" class="form-control" id="hotelimg" 
+                        name="hotel_img"
+                        placeholder="Image">
+                        <label for="hotelimg">Image</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <select class="form-select" id="select3"
+                        name="city"
+                        >
+                          <option value="Indore">Indore</option>
+                          <option value="Ujjain">Ujjain</option>
+                          <option value="Bhopal">Bhopal</option>
+                        </select>
+                        <label for="select3">Select A City</label>
+                      </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Address" 
+                        id="description" 
+                        name="address"
+                        style="height: 100px"></textarea>
+                        <label for="description">Address</label>
+                    </div>
+                </div>
+            
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="price" 
+                        name="price"
+                        placeholder="Price">
+                        <label for="price">Price</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="discount" 
+                        name="discount"
+                        placeholder="Discount">
+                        <label for="discount">Discount</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="oldprice" 
+                        name="oldprice"
+                        placeholder="Old Price">
+                        <label for="oldprice">Old Price</label>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+
+                    
+                    
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 py-3" type="submit">Add Hotel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock Carousel %}
+
+{% block Booking %}
+{% endblock Booking %}
+
+{% block About %}
+{% endblock About %}
+
+{% block Room %}
+{% endblock Room %}
+
+{% block Video %}
+{% endblock Video %}
+
+{% block Service %}
+{% endblock Service %}
+
+{% block Testimonial %}
+{% endblock Testimonial %}
+
+{% block Team %}
+{% endblock Team %}
+
+
+

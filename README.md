@@ -7,6 +7,6 @@ Navigte to run Project HotelBookin
             git clone https://github.com/sumitkumar74604/HotelBooking.git
     # 3. Install Django
             pip install django
-    # 4. Run server 
-            python manage.py runserver 0.0.0.0:8000
+    # 4. Run Migrate
+            python manage.py migrate
           

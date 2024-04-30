@@ -29,11 +29,7 @@
                             <i class="fa fa-envelope text-primary me-2"></i>
                             <p class="mb-0">{{customer.email}}!!</p>
                         </div>
-                        <!-- <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
-                        <a class="" href=""><i class="fab fa-youtube"></i></a> -->
+                        
                     </div>
                 </div>
             </div>
@@ -48,9 +44,10 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{curl}}" class="nav-item nav-link active">Home</a>
-                        <!-- <a href="{{curl}}/about" class="nav-item nav-link">Booking</a>
-                        <a href="room.html" class="nav-item nav-link">Rooms</a> -->
-                        <a href="{{curl}}/login" class="nav-item nav-link">Logout</a>
+                        <a href="{{curl}}/customer/bookingdetails" class="nav-item nav-link">Booking Details</a>
+                        <a href="{{curl}}/customer/editprofile" class="nav-item nav-link">Edit Profile</a>
+                        <a href={{curl}}/customer/changepassword class="nav-item nav-link">Change Password</a>
+                        <a href="{{curl}}/customer/logout" class="nav-item nav-link">Logout</a>
                     </div>
                 </div>
             </nav>
@@ -115,7 +112,7 @@
                         <p class="text-body mb-3">{{dic.room_description}}</p>
                         <div class="d-flex justify-content-between">
                             <!-- <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a> -->
-                            <a class="btn btn-sm btn-dark rounded py-2 px-4" href="{{curl}}/customer/bookroom?id={{dic.customer_id}}">Book Now</a>
+                            <a class="btn btn-sm btn-dark rounded py-2 px-4" href="{{curl}}/customer/bookroom?id={{dic.room_id}}&h_id={{dic.hotel_id}}">Book Now</a>
                         </div>
                     </div>
                 </div>

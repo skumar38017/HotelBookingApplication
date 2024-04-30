@@ -1,0 +1,112 @@
+{% extends 'index.html' %}
+
+{% block Carousel %}
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase">Please Login</h6>
+            <h1 class="mb-5"><span class="text-primary text-uppercase">Please Login</span> For Hotel Booking</h1>
+        </div>
+        <!-- 
+            When a user is authenticated and surfing on the website, Django generates a unique CSRF token for each session. This token is included in forms or requests sent by the user and is checked by the server to verify that the request is coming from the authenticated user and not from a malicious source.
+         -->
+        <!-- 
+            Type:1 
+            <form method="post" novalidate>
+            {% csrf_token %}
+            {{form}} 
+            <input type="submit" />
+        </form> -->
+  
+        
+            <!-- Type:2=> in table format -->
+
+            <!-- <form method="post" novalidate>
+            {% csrf_token %}
+            <table>
+                {{form.as_table}} 
+            </table>
+            <input type="submit" />
+        </form> -->
+
+        <!-- 
+            Type:3=> in paragraph format
+
+            <form method="post" novalidate>
+            {% csrf_token %}
+                {{form.as_p}} 
+            <input type="submit" />
+        </form> -->
+
+        <!-- 
+            Type:4:in Unordered list format
+
+            <form method="post" novalidate>
+            {% csrf_token %}
+                {{form.as_ul}} 
+            <input type="submit" />
+        </form> -->
+
+        <!-- 
+            Type:5=> take single field
+            <form method="post">
+            {% csrf_token %}
+                {{form.email}}
+                {{form.password}} 
+            <input type="submit" />
+        </form> -->
+
+        <h1>{{msg}}</h1>
+        <form align="center" method="post">
+            {% csrf_token %}
+            <div class="row g-3">
+                
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" 
+                        name="email"
+                        placeholder="Email">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="password" 
+                        name="password"    
+                        placeholder="Password">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 py-3" type="submit">Login</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</div>
+{% endblock Carousel %}
+
+{% block Booking %}
+{% endblock Booking %}
+
+{% block About %}
+{% endblock About %}
+
+{% block Room %}
+{% endblock Room %}
+
+{% block Video %}
+{% endblock Video %}
+
+{% block Service %}
+{% endblock Service %}
+
+{% block Testimonial %}
+{% endblock Testimonial %}
+
+{% block Team %}
+{% endblock Team %}
+
+

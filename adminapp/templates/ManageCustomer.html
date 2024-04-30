@@ -1,0 +1,140 @@
+{% extends 'index.html'%}
+
+
+{% block Header %}
+<!-- Header Start -->
+<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a href="index.html"
+                class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h2 class="m-0 text-primary text-uppercase">Hotel Booking</h2>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <div class="row gx-0 bg-white d-none d-lg-flex">
+                <div class="col-lg-7 px-5 text-start">
+                    <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                        <p class="mb-0">Welcome {{admin.name}}!!</p>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center py-2">
+                        <i class="fa fa-phone-alt text-primary me-2"></i>
+                        <p class="mb-0">{{admin.mobile}}</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 px-5 text-end">
+                    <div class="d-inline-flex align-items-center py-2">
+                        <div class="h-100 d-inline-flex align-items-center py-2">
+                            <i class="fa fa-envelope text-primary me-2"></i>
+                            <p class="mb-0">{{admin.email}}!!</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 text-primary text-uppercase">Hotel Booking</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="{{curl}}/hoteladmin/home" class="nav-item nav-link active">Admin Home</a>
+                        <a href="{{curl}}/hoteladmin/managecustomer" class="nav-item nav-link">Manage Customer</a>
+                        
+                        <a href={{curl}}/hoteladmin/addroom
+                         class="nav-item nav-link">Add Rooms</a>
+
+                         <a href={{curl}}/hoteladmin/viewroom
+                         class="nav-item nav-link">View Rooms</a>
+
+                         <a href={{curl}}/hoteladmin/addhotel
+                         class="nav-item nav-link">Add Hotel</a>
+
+                         <a href={{curl}}/hoteladmin/viewhotel
+                         class="nav-item nav-link">View Hotel</a>
+
+                         <a href={{curl}}/hoteladmin/changepassword
+                         class="nav-item nav-link">Change Password</a>
+
+                         <a href="{{curl}}/hoteladmin/logout" class="nav-item nav-link">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+{% endblock Header %}
+
+{% block About %}
+{% endblock About %}
+
+{% block Carousel %}
+<h1>View & Manage Customer</h1>
+<h3>{{msg}}</h3>
+<div class="container mt-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>S No.</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Mobile</th>
+          <th>Gender</th>
+          <th>Address</th>
+          <th>DOB</th>
+          <th colspan="2" style="text-align: center;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dic in customers %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{dic.name}}</td>
+            <td>{{dic.email}}</td>
+            <td>{{dic.password}}</td>
+            <td>{{dic.mobile}}</td>
+            <td>{{dic.gender}}</td>
+            <td>{{dic.address}}</td>
+            <td>{{dic.dob}}</td>
+            <td>
+                {% if dic.status %}
+                <a class="btn btn-sm btn-warning rounded py-2 px-4 text-white" href="{{curl}}/hoteladmin/managecustomerstatus?id={{dic.customer_id}}&status={{dic.status}}">BLOCK</a>
+                {% else %}
+                <a class="btn btn-sm btn-success rounded py-2 px-4" href="{{curl}}/hoteladmin/managecustomerstatus?id={{dic.customer_id}}&status={{dic.status}}">VERIFY</a>
+                {% endif %}
+            </td> 
+            <td>
+                <a class="btn btn-sm btn-danger rounded py-2 px-4" href="{{curl}}/hoteladmin/deletecustomer?id={{dic.customer_id}}">DELETE</a>
+            </td> 
+        </tr> 
+        {% endfor %}     
+      </tbody>
+    </table>
+  </div>
+{% endblock Carousel %}
+
+{% block Booking %}
+{% endblock Booking %}
+
+{% block Room %}
+{% endblock Room %}
+
+{% block Video %}
+{% endblock Video %}
+
+{% block Service %}
+{% endblock Service %}
+
+{% block Testimonial %}
+{% endblock Testimonial %}
+
+{% block Team %}
+{% endblock Team %}
+

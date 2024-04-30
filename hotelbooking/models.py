@@ -12,24 +12,13 @@ class Customer(models.Model):
     dob = models.DateField(max_length=10)
     status = models.IntegerField(default=0)
     role = models.CharField(default="customer",max_length=10)
+    forgot_password_token = models.CharField(max_length=200,default="")
+
     date = models.DateTimeField('date published', default=timezone.now)
 
     def __str__(self):
         return "{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7},{8},{9}".format(self.customer_id,self.name, self.email,self.password,self.mobile,self.gender,self.address,self.dob,self.status,self.role,self.date)
 
-class Booking(models.Model):
-    customer = models.ForeignKey(Customer,
-        related_name='customer',
-        on_delete=models.CASCADE
-    )   
-    booking_id = models.AutoField(primary_key=True)
-    checkin = models.DateTimeField('checkin time')
-    checkout = models.DateTimeField('checkout time')
-    adult = models.IntegerField(default=0)
-    child = models.IntegerField(default=0)
-    
-    def __str__(self):
-        return self.customer.name
 
 
 class Hotel(models.Model):
@@ -68,4 +57,33 @@ class Room(models.Model):
     room_rating = models.IntegerField(default=2)
 
     def __str__(self):
-        return self.customer.email    
+        return self.room_name    
+
+class Booking(models.Model):
+    customer = models.ForeignKey(Customer,
+        related_name='customer',
+        on_delete=models.CASCADE
+    )   
+    hotel = models.ForeignKey(Hotel,
+        related_name='bookhotel',
+        on_delete=models.CASCADE
+    )  
+    room = models.ForeignKey(Room,
+        related_name='bookroom',
+        on_delete=models.CASCADE
+    )
+    hotel_name=models.CharField(max_length=100,default="") 
+    room_name=models.CharField(max_length=100,default="") 
+    booking_id = models.AutoField(primary_key=True)
+    checkin = models.DateTimeField('checkin time')
+    checkout = models.DateTimeField('checkout time')
+    adult = models.IntegerField(default=0)
+    child = models.IntegerField(default=0)
+    name = models.CharField(max_length=100,default="")
+    email = models.CharField(max_length=100,default="")
+    specialrequest = models.CharField(max_length=200,default="")
+    price = models.FloatField(default=0.0)
+
+
+    def __str__(self):
+        return self.customer.name

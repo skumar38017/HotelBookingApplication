@@ -1,0 +1,150 @@
+{% extends 'index.html' %}
+
+{% block Carousel %}
+<style>
+    input[type=radio] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .test {
+        background-color: #fea23b;
+        color: white;
+    }
+</style>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase">Please Register</h6>
+            <h1 class="mb-5"><span class="text-primary text-uppercase">Please register</span> For Hotel Booking</h1>
+        </div>
+        <!-- <form method="post" align="center" novalidate>
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        {{form.email}}
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" />
+        </form> -->
+        <h1>{{msg}}</h1>
+        <form align="center" method="post">
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="name" 
+                        name="name"
+                        placeholder="Name">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" 
+                        name="email"
+                        placeholder="Email">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="password" 
+                        name="password"
+                        placeholder="Password">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="mobile" 
+                        name="mobile"
+                        placeholder="Mobile">
+                        <label for="mobile">Mobile</label>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a message here" id="message" 
+                        name="address"
+                        style="height: 150px"></textarea>
+                        <label for="message">Address</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <input type="date" id="dob" class="form-control" required="required" name="dob"
+                        data-validation-required-message="Please enter your dob" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="col-4">
+                        <input class="form-check-input" type="radio" checked="Male" name="gender"
+                        value="Male"
+                        class="text-primary" />
+                        <label class="form-check-label">
+                            &nbsp;Male
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-check-input" type="radio" class="text-primary" 
+                        name="gender"
+                        value="Female"
+                        />
+                        <label class="form-check-label">
+                            &nbsp; Female
+                        </label>
+                    </div>
+
+                    <div class="col-4">
+                        <input class="form-check-input" type="radio" style="font-size: 30px;" name="gender"
+                        value="Other"
+                            class="text-primary" />
+                        <label class="form-check-label">
+                            &nbsp; Other
+                        </label>
+                        <p class="help-block text-danger"></p>
+                    </div>
+
+                
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                </div>
+            </div>
+        </form>
+        <!-- <div class="row g-4">
+            <div class="col-md-6">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock Carousel %}
+
+{% block Booking %}
+{% endblock Booking %}
+
+{% block About %}
+{% endblock About %}
+
+{% block Room %}
+{% endblock Room %}
+
+{% block Video %}
+{% endblock Video %}
+
+{% block Service %}
+{% endblock Service %}
+
+{% block Testimonial %}
+{% endblock Testimonial %}
+
+{% block Team %}
+{% endblock Team %}
+
+
+

@@ -1,0 +1,129 @@
+{% extends 'index.html'%}
+
+
+{% block Header %}
+<!-- Header Start -->
+<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a href="index.html"
+                class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h2 class="m-0 text-primary text-uppercase">Hotel Booking</h2>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <div class="row gx-0 bg-white d-none d-lg-flex">
+                <div class="col-lg-7 px-5 text-start">
+                    <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                        <p class="mb-0">Welcome {{customer.name}}!!</p>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center py-2">
+                        <i class="fa fa-phone-alt text-primary me-2"></i>
+                        <p class="mb-0">{{customer.mobile}}</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 px-5 text-end">
+                    <div class="d-inline-flex align-items-center py-2">
+                        <div class="h-100 d-inline-flex align-items-center py-2">
+                            <i class="fa fa-envelope text-primary me-2"></i>
+                            <p class="mb-0">{{customer.email}}!!</p>
+                        </div>
+                        <!-- <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="" href=""><i class="fab fa-youtube"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 text-primary text-uppercase">Hotel Booking</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="{{curl}}/customer/home" class="nav-item nav-link active">Home</a>
+                        <a href="{{curl}}/customer/bookingdetails" class="nav-item nav-link">Booking Details</a>
+                        <a href="{{curl}}/customer/editprofile" class="nav-item nav-link">Edit Profile</a>
+                        <a href={{curl}}/customer/changepassword class="nav-item nav-link">Change Password</a>
+                        <a href="{{curl}}/customer/logout" class="nav-item nav-link">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+{% endblock Header %}
+
+{% block Carousel %}
+{% endblock Carousel %}
+
+
+{% block About %}
+{% endblock About %}
+
+{% block Booking %}
+
+<h1>Booking Details</h1>
+<h3>{{msg}}</h3>
+<div class="container mt-3">
+    <table class="table">
+      <thead>
+        <tr align="center">
+          <th>Hotel</th>
+          <th>Room</th>
+          <th>Check-In</th>
+          <th>Check-Out</th>
+          <th>Adult</th>
+          <th>Child</th>
+          <th>Special Request</th>
+          <th>Amount&nbsp;in&nbsp;₹</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dic in bookingdetails %}
+        <tr>
+            <td>{{dic.hotel_name}}</td>
+            <td>{{dic.room_name}}</td>
+            <td>{{dic.checkin}}</td>
+            <td>{{dic.checkout}}</td>
+            <td>{{dic.adult}}</td>
+            <td>{{dic.child}}</td>
+            <td>{{dic.specialrequest}}</td>
+            <td>{{dic.price}}</td>
+            <td>
+                <a class="btn btn-sm btn-danger rounded py-2 px-4" href="{{curl}}/customer/deletebooking?id={{dic.booking_id}}">DELETE</a>
+            </td> 
+            <td>
+                <a class="btn btn-sm btn-success rounded py-2 px-4" href="{{curl}}/customer/payment?price={{dic.price}}">Pay</a>
+            </td> 
+        </tr> 
+        {% endfor %}     
+      </tbody>
+    </table>
+</div>
+{% endblock Booking %}
+
+{% block Room %}
+{% endblock Room %}
+
+
+{% block Video %}
+{% endblock Video %}
+
+{% block Service %}
+{% endblock Service %}
+
+{% block Testimonial %}
+{% endblock Testimonial %}
+
+{% block Team %}
+{% endblock Team %}
+

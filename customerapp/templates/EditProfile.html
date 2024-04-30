@@ -1,0 +1,190 @@
+{% extends 'index.html' %}
+
+{% block Header %}
+<!-- Header Start -->
+<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a href="index.html"
+                class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h2 class="m-0 text-primary text-uppercase">Hotel Booking</h2>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <div class="row gx-0 bg-white d-none d-lg-flex">
+                <div class="col-lg-7 px-5 text-start">
+                    <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                        <p class="mb-0">Welcome {{customer.name}}!!</p>
+                    </div>
+                    <div class="h-100 d-inline-flex align-items-center py-2">
+                        <i class="fa fa-phone-alt text-primary me-2"></i>
+                        <p class="mb-0">{{customer.mobile}}</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 px-5 text-end">
+                    <div class="d-inline-flex align-items-center py-2">
+                        <div class="h-100 d-inline-flex align-items-center py-2">
+                            <i class="fa fa-envelope text-primary me-2"></i>
+                            <p class="mb-0">{{customer.email}}!!</p>
+                        </div>
+                        <!-- <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="" href=""><i class="fab fa-youtube"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 text-primary text-uppercase">Hotel Booking</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="{{curl}}/customer/home" class="nav-item nav-link active">Home</a>
+                        <a href="{{curl}}/customer/bookingdetails" class="nav-item nav-link">Booking Details</a>
+                        <a href="{{curl}}/customer/editprofile" class="nav-item nav-link">Edit Profile</a>
+                        <a href={{curl}}/customer/changepassword class="nav-item nav-link">Change Password</a>
+                        <a href="{{curl}}/customer/logout" class="nav-item nav-link">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+{% endblock Header %}
+
+{% block Carousel %}
+<style>
+    input[type=radio] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .test {
+        background-color: #fea23b;
+        color: white;
+    }
+</style>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <!-- <h6 class="section-title text-center text-primary text-uppercase">Please Register</h6> -->
+            <h1 class="mb-5"><span class="text-primary text-uppercase">Edit Profile</span></h1>
+        </div>
+        <h1>{{msg}}</h1>
+        <form align="center" method="post">
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="name" 
+                        name="name"
+                        placeholder="Name" value="{{customer.name}}">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" 
+                        name="email"
+                        placeholder="Email" value="{{customer.email}}" disabled>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="password" 
+                        name="password"
+                        placeholder="Password" value="{{customer.password}}" disabled>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="mobile" 
+                        name="mobile"
+                        placeholder="Mobile" value="{{customer.mobile}}">
+                        <label for="mobile">Mobile</label>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a message here" id="message" 
+                        name="address" value="{{customer.address}}"
+                        style="height: 150px">{{customer.address}}</textarea>
+                        <label for="message">Address</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <input type="date" value="{{customer.dob|date:'Y-m-d'}}" id="dob" class="form-control" required="required" name="dob"
+                        data-validation-required-message="Please enter your dob"/>
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="col-4">
+                        <input class="form-check-input" type="radio" checked="{{customer.gender}}" name="gender"
+                        value="Male"
+                        class="text-primary" />
+                        <label class="form-check-label">
+                            &nbsp;Male
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-check-input" type="radio" class="text-primary" 
+                        name="gender"
+                        value="Female"
+                        />
+                        <label class="form-check-label">
+                            &nbsp; Female
+                        </label>
+                    </div>
+
+                    <div class="col-4">
+                        <input class="form-check-input" type="radio" style="font-size: 30px;" name="gender"
+                        value="Other"
+                            class="text-primary" />
+                        <label class="form-check-label">
+                            &nbsp; Other
+                        </label>
+                        <p class="help-block text-danger"></p>
+                    </div>
+
+                
+                <div class="col-12">
+                    <button class="btn btn-primary w-100 py-3" type="submit">Update Profile</button>
+                </div>
+            </div>
+        </form>
+{% endblock Carousel %}
+
+{% block Booking %}
+{% endblock Booking %}
+
+{% block About %}
+{% endblock About %}
+
+{% block Room %}
+{% endblock Room %}
+
+{% block Video %}
+{% endblock Video %}
+
+{% block Service %}
+{% endblock Service %}
+
+{% block Testimonial %}
+{% endblock Testimonial %}
+
+{% block Team %}
+{% endblock Team %}
+
+
+

@@ -29,11 +29,7 @@
                             <i class="fa fa-envelope text-primary me-2"></i>
                             <p class="mb-0">{{customer.email}}!!</p>
                         </div>
-                        <!-- <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
-                        <a class="" href=""><i class="fab fa-youtube"></i></a> -->
+                        
                     </div>
                 </div>
             </div>
@@ -48,9 +44,11 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{curl}}" class="nav-item nav-link active">Home</a>
-                        <!-- <a href="{{curl}}/about" class="nav-item nav-link">Booking</a>
-                        <a href="room.html" class="nav-item nav-link">Rooms</a> -->
-                        <a href="{{curl}}/login" class="nav-item nav-link">Logout</a>
+                        
+                        <a href="{{curl}}/customer/bookingdetails" class="nav-item nav-link">Booking Details</a>
+                        <a href="{{curl}}/customer/editprofile" class="nav-item nav-link">Edit Profile</a>
+                        <a href={{curl}}/customer/changepassword class="nav-item nav-link">Change Password</a>
+                        <a href="{{curl}}/customer/logout" class="nav-item nav-link">Logout</a>
                     </div>
                 </div>
             </nav>
@@ -62,6 +60,7 @@
 
 {% block About %}
 {% endblock About %}
+
 
 {% block Booking %}
 
@@ -75,47 +74,33 @@ input::-webkit-input-placeholder {
     <div class="container">
         <div class="bg-white shadow" style="padding: 35px;">
             <div class="row g-2">
+                <h3>{{msg}}</h3>
                 <div class="col-md-12">
+                    <form method="post" action={{curl}}/customer/search/>
+                        {% csrf_token %}
                     <div class="row g-2">
-                        <div class="col-md-2">
-                            <input type="text"
-                            class="form-control"
-                            placeholder="AREA, LANDMARK"
-                            />
-                        </div>
-                        <div class="col-md-2">
-                            <div class="date" id="date1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input"
-                                    placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="date" id="date2" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input"
-                                    placeholder="Check out" data-target="#date2" data-toggle="datetimepicker" />
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <select class="form-select">
-                                <option selected>Adult</option>
-                                <option value="1">Adult 1</option>
-                                <option value="2">Adult 2</option>
-                                <option value="3">Adult 3</option>
+                        <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" id="select3"
+                            name="searchcity">
+                            <option value="">Select a City</option>
+                              <option value="Indore">Indore</option>
+                              <option value="Ujjain">Ujjain</option>
+                              <option value="Bhopal">Bhopal</option>
+                              <option value="Dewas">Dewas</option>
                             </select>
+                            <label for="select3">Select A City</label>
                         </div>
-                        <div class="col-md-2">
-                            <select class="form-select">
-                                <option selected>Child</option>
-                                <option value="1">Child 1</option>
-                                <option value="2">Child 2</option>
-                                <option value="3">Child 3</option>
-                            </select>
+                        </div>
+                        
+                        
+                        <div class="col-md-6">
+                            <button class="btn btn-primary w-100 h-100">Search</button>
                         </div>
                     </div>
+                </form>
                 </div>
-                <div class="col-md-2">
-                    <button class="btn btn-primary w-100">Search</button>
-                </div>
+                
             </div>
         </div>
     </div>

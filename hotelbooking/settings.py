@@ -50,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'adminapp.views.sessioncheckadmin_middleware',
+    'customerapp.views.sessioncheckcustomer_middleware',
 ]
 
 ROOT_URLCONF = 'hotelbooking.urls'
@@ -130,7 +132,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-BASE_URL = "http://0.0.0.0:8000"
+BASE_URL = "http://localhost:8000"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -141,3 +143,13 @@ import os
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
+RAZOR_KEY_SECRET = ""
+
+RAZOR_KEY_ID = ""
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'vjuniversal1@gmail.com'
+EMAIL_HOST_PASSWORD = ''

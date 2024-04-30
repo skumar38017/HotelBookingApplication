@@ -29,6 +29,8 @@ urlpatterns = [
     path('about/',views.about),
     path('login/',views.login),
     path('register/',views.register),
+    path('changepassword/<token>',views.changepassword),
+    path('forgotpassword/',views.forgotpassword),
     path('customer/',include("customerapp.urls")),
     path('hoteladmin/',include("adminapp.urls")),
 ]+static(settings.MEDIA_URL,

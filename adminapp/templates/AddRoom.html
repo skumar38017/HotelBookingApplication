@@ -29,11 +29,7 @@
                             <i class="fa fa-envelope text-primary me-2"></i>
                             <p class="mb-0">{{admin.email}}!!</p>
                         </div>
-                        <!-- <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
-                        <a class="" href=""><i class="fab fa-youtube"></i></a> -->
+                        
                     </div>
                 </div>
             </div>
@@ -48,6 +44,8 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{curl}}/hoteladmin/home" class="nav-item nav-link active">Admin Home</a>
+                        <a href="{{curl}}/hoteladmin/managecustomer" class="nav-item nav-link">Manage Customer</a>
+
                         <a href={{curl}}/hoteladmin/addroom
                          class="nav-item nav-link">Add Rooms</a>
 
@@ -62,7 +60,7 @@
                          <a href={{curl}}/hoteladmin/changepassword
                          class="nav-item nav-link">Change Password</a>
 
-                        <a href="{{curl}}/login" class="nav-item nav-link">Logout</a>
+                         <a href="{{curl}}/hoteladmin/logout" class="nav-item nav-link">Logout</a>
                     </div>
                 </div>
             </nav>
@@ -97,7 +95,6 @@
             <div class="row g-3">
                 <div class="col-12">
                     <div class="form-floating">
-                        
                         <select class="form-select" id="select3"
                         name="hotelname">
                         <option value="">Select a Hotel</option>
